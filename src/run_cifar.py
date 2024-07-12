@@ -34,7 +34,7 @@ def main():
     print(f"Using: {torch.cuda.get_device_name(device)}")
 
     trainloader = get_data()
-    net = torchvision.models.resnet50(pretrained=True)
+    net = torchvision.models.resnet50(weights=torchvision.models.ResNet50_Weights.DEFAULT) # pretrained=True in old version
     net = swap_classifier(net)
     net.to(device)
 
